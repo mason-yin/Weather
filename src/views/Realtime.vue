@@ -1,6 +1,5 @@
 <template>
-  <div class="home">
-    <h1>Welcome to Mason's Weather App</h1>
+  <div class="realtime">
     <h1>Enter a US city name or US zip code</h1>
     <el-form :model="form" label-width="120px" :rules="rules" ref="form">
       <el-form-item label="Search" prop="name">
@@ -44,7 +43,7 @@
 <script>
 
 export default {
-  name: 'Home',
+  name: 'Realtime',
   mounted() {
     this.updateWeatherData("pittsburgh")
   },
