@@ -9,12 +9,7 @@
         <el-button type="primary" @click="onSubmit('form')">Search</el-button>
       </el-form-item>
     </el-form>
-    <el-table :data="tableData" height="250" style="width: 100%">
-      <el-table-column prop="date" label="Date" width="180" />
-      <el-table-column prop="name" label="Name" width="180" />
-      <el-table-column prop="address" label="Address" />
-    </el-table>
-    <h2>Weather Data in {{weatherData.name}}, {{ weatherData.country }}</h2>
+    <h2>Realtime Weather Data in {{weatherData.name}}, {{ weatherData.country }}</h2>
     <el-descriptions
         direction="vertical"
         :column="4"
@@ -72,18 +67,6 @@ export default {
           { required: true, message: 'enter city name or US zip code', trigger: 'blur' }
         ]
       },
-      tableData: [
-        {
-          date: '2016-05-03',
-          name: 'Tom',
-          address: 'No. 189, Grove St, Los Angeles',
-        },
-        {
-          date: '2016-05-03',
-          name: 'Tom',
-          address: 'No. 189, Grove St, Los Angeles',
-        }
-      ],
       form: {
         name: ''
       }
