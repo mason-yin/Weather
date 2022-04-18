@@ -13,6 +13,7 @@
     <el-descriptions
         direction="vertical"
         :column="4"
+        v-loading="loading"
         border
     >
       <el-descriptions-item label="City name">{{ weatherData.name }}</el-descriptions-item>
@@ -44,6 +45,7 @@ export default {
   },
   data() {
     return {
+      loading: true,
       weatherData: {
         name: '',
         region: '',
@@ -76,6 +78,7 @@ export default {
     onSubmit(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
+          this.loading = true
           this.updateWeatherData(this.form.name)
         } else {
           console.log('error submit!!');
@@ -128,8 +131,10 @@ export default {
             this.weatherData.air_quality = 'Hazardous'
             break
         }
+        this.loading = false
       }).catch(err => {
         alert("No location found. Please check your input");
+        this.loading = false
         console.log(err)
       })
     }
